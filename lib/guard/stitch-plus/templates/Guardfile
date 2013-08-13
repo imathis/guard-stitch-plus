@@ -1,0 +1,4 @@
+guard 'stitch-plus', :dependencies => ['javascripts/dependencies/**/*'], :paths => ['javascripts/modules'] do
+  watch /^javascripts/
+end
+
