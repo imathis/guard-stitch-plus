@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'stitch-plus', :dependencies => ['javascripts/dependencies/**/*'], :paths => ['javascripts/modules'] do
+guard 'stitch-plus', 'stitch.yml' do
   watch /^javascripts/
 end
 

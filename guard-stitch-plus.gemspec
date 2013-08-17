@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.license       = "MIT"
 
   gem.add_runtime_dependency 'guard', '>= 1.1.0'
-  gem.add_runtime_dependency 'stitch-rb', '>= 0.0.8'
+  gem.add_runtime_dependency 'stitch-plus', '>= 1.0.2'
   gem.add_runtime_dependency 'colorator', '>= 0.1'
 
   gem.files         = `git ls-files`.split($/)
