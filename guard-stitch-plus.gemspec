@@ -8,14 +8,13 @@ Gem::Specification.new do |gem|
   gem.version       = Guard::StitchPlusVersion::VERSION
   gem.authors       = ["Brandon Mathis"]
   gem.email         = ["brandon@imathis.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A Guard plugin for compiling javascripts with Stitch Plus.}
+  gem.summary       = %q{A Guard plugin for compiling javascripts with Stitch Plus.}
   gem.homepage      = "https://github.com/imathis/guard-stitch-plus"
   gem.license       = "MIT"
 
   gem.add_runtime_dependency 'guard', '>= 1.1.0'
-  gem.add_runtime_dependency 'stitch-plus', '>= 1.0.2'
-  gem.add_runtime_dependency 'colorator', '>= 0.1'
+  gem.add_runtime_dependency 'stitch-plus', '>= 1.0.4'
 
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ["lib"]

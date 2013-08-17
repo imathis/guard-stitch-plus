@@ -6,24 +6,23 @@ module Guard
 
     def initialize (watchers=[], options={})
       super
-      @stitcher = ::StitchPlus.new(options)
-      @stitcher.set_options({guard: true})
+      @stitcher = ::StitchPlus.new(options.merge({guard: true}))
     end
 
     def start
-      @stitcher.compile
+      @stitcher.write
     end
 
     def reload
-      @stitcher.compile
+      @stitcher.write
     end
 
     def run_all
-      @stitcher.compile
+      @stitcher.write
     end
 
     def run_on_changes(_)
-      @stitcher.compile
+      @stitcher.write
     end
   end
 end

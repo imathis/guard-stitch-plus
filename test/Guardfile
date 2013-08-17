@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'stitch-plus', 'stitch.yml' do
+guard 'stitch-plus', config: 'stitch.yml' do
   watch /^javascripts/
 end
 
