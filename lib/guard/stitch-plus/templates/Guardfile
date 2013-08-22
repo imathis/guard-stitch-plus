@@ -1,4 +1,4 @@
-guard 'stitch-plus', :dependencies => ['javascripts/dependencies/**/*'], :paths => ['javascripts/modules'] do
-  watch /^javascripts/
+guard 'stitch-plus', config: '_config.yml' do
+  watch %r{^javascripts/|_config\.yml}
 end
 

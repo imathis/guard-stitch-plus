@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'guard-stitch-plus', :path => "../"
-gem 'coffee-script'
+gem 'jekyll'
+gem 'guard-jekyll-plus'
+gem 'jekyll-stitch-plus'
+gem 'guard-stitch-plus', path: '../'
 gem 'uglifier'
-
+gem 'coffee-script'
+gem 'redcarpet'

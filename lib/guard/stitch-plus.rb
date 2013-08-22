@@ -6,23 +6,35 @@ module Guard
 
     def initialize (watchers=[], options={})
       super
-      @stitcher = ::StitchPlus.new(options.merge({guard: true}))
+      @options = options
     end
 
     def start
-      @stitcher.write
+      @stitcher = ::StitchPlus.new(@options.merge({guard: true}))
+      ENV['GUARD_STITCH_PLUS'] = 'true'
+      ENV['GUARD_STITCH_PLUS_FILES'] = @stitcher.all_files.join(',')
+      write
     end
 
     def reload
-      @stitcher.write
+      write
     end
 
     def run_all
-      @stitcher.write
+      write
     end
 
-    def run_on_changes(_)
+    def run_on_changes(paths)
+      if @options[:config] and paths.include? @options[:config]
+        start
+      elsif (paths & @stitcher.all_files).size > 0
+        write
+      end
+    end
+
+    def write
       @stitcher.write
+      ENV['GUARD_STITCH_PLUS_OUTPUT'] = @stitcher.last_write
     end
   end
 end

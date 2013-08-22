@@ -1,7 +1,13 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'stitch-plus', config: 'stitch.yml' do
-  watch /^javascripts/
+
+guard 'stitch-plus', config: '_config.yml' do
+  watch %r{^js/|_config.yml}
+end
+
+guard "jekyll-plus" do
+  watch /.*/
+  ignore %r{^_site/}
 end
 
