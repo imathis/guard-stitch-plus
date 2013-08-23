@@ -2,9 +2,17 @@
 # More info at https://github.com/guard/guard#readme
 
 
-guard 'stitch-plus', config: '_config.yml' do
-  watch %r{^js/|_config.yml}
+# Add 
+stitch_config = {
+  dependencies: ['js/lib'],
+  paths: ['js/modules'],
+  output: 'js/site.js',
+  uglify: true
+}
+guard 'stitch-plus', stitch_config do
+  watch /js/
 end
+
 
 guard "jekyll-plus" do
   watch /.*/

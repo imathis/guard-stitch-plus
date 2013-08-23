@@ -12,7 +12,7 @@ module Guard
     def start
       @stitcher = ::StitchPlus.new(@options.merge({guard: true}))
       ENV['GUARD_STITCH_PLUS'] = 'true'
-      ENV['GUARD_STITCH_PLUS_FILES'] = @stitcher.all_files.join(',')
+      @stitch_files = stitch_files
       write
     end
 
@@ -24,10 +24,24 @@ module Guard
       write
     end
 
+    def run_on_removals(paths)
+      if (paths & @stitch_files).size > 0
+        write
+      end
+    end
+
+    def run_on_additions(paths)
+      @stitch_files = stitch_files
+      if (paths & @stitch_files).size > 0
+        write
+      end
+    end
+
     def run_on_changes(paths)
+      @stitch_files = stitch_files
       if @options[:config] and paths.include? @options[:config]
         start
-      elsif (paths & @stitcher.all_files).size > 0
+      elsif (paths & @stitch_files).size > 0
         write
       end
     end
@@ -35,6 +49,14 @@ module Guard
     def write
       @stitcher.write
       ENV['GUARD_STITCH_PLUS_OUTPUT'] = @stitcher.last_write
+    end
+
+    private
+    
+    def stitch_files
+      all_files = @stitcher.all_files
+      ENV['GUARD_STITCH_PLUS_FILES'] = all_files.join(',')
+      all_files
     end
   end
 end

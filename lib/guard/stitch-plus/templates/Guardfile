@@ -1,4 +1,16 @@
-guard 'stitch-plus', config: '_config.yml' do
-  watch %r{^javascripts/|_config\.yml}
+# Read more about stitch-plus configuration at https://github.com/imathis/guard-stitch-plus
+#
+stitch_config = {
+  dependencies: [
+    'javascripts/lib/jquery.js',
+    'javascripts/lib'
+  ],
+  paths: ['javascripts/modules'],
+  output: 'javascripts/site.js',
+  uglify: true
+}
+
+guard 'stitch-plus', stitch_config do
+  watch /javascripts/
 end
 
