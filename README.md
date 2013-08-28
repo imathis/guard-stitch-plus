@@ -1,6 +1,8 @@
 # Guard Stitch Plus
 
-A guard compiling and uglifying javascripts, powered by [stitch-plus](https://github.com/imathis/stitch-plus).
+[![Gem Version](https://badge.fury.io/rb/guard-stitch-plus.png)](http://badge.fury.io/rb/guard-stitch-plus)
+
+A guard plugin for compiling and uglifying javascripts, powered by [stitch-plus](https://github.com/imathis/stitch-plus).
 
 ## Installation
 
