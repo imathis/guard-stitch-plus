@@ -52,6 +52,8 @@ If you're using Jekyll, be sure to check out [jekyll-stitch-plus](https://github
 nicely with this guard plugin. In that case be sure to add your stitch-plus configuration to your Jekyll config file (usually _config.yml) and point your guard to that
 file as well.
 
+Also, if you're using [guard-jekyll-plus](https://github.com/imathis/guard-jekyll-plus) it's better to list this guard first in your Guardfile. This will ensure that on the first run guard-stitch-plus will generate the javascript files and jekyll-stitch-plus won't unnecessarily compare or compile javascirpts.
+
 Your Jekyll YAML config file might look like this.
 
 ```yaml
